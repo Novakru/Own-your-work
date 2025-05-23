@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'Comic Neue';
+  src: url('/fonts/ComicNeue-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -21,7 +29,7 @@ body {
     rgb(var(--background-start-rgb)),
     rgb(var(--background-end-rgb))
   );
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Comic Neue', Arial, Helvetica, sans-serif;
 }
 
 /* 深色模式样式 */
