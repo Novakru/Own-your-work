@@ -3,19 +3,154 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 17, 24, 39;
+  --background-end-rgb: 11, 15, 25;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root:not(.dark) {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 255, 255, 255;
+  --background-end-rgb: 240, 240, 240;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+    to bottom,
+    rgb(var(--background-start-rgb)),
+    rgb(var(--background-end-rgb))
+  );
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* 深色模式样式 */
+.dark .prose {
+  @apply text-gray-100;
+}
+
+.dark .prose h1 {
+  @apply text-gray-100;
+}
+
+.dark .prose h2 {
+  @apply text-gray-200;
+}
+
+.dark .prose h3 {
+  @apply text-gray-300;
+}
+
+.dark .prose p {
+  @apply text-gray-300;
+}
+
+.dark .prose a {
+  @apply text-blue-400 hover:text-blue-300;
+}
+
+.dark .prose strong {
+  @apply text-gray-100;
+}
+
+.dark .prose code {
+  @apply bg-gray-800 text-gray-100 px-1 py-0.5 rounded;
+}
+
+.dark .prose pre {
+  @apply bg-gray-800 border border-gray-700;
+}
+
+.dark .prose pre code {
+  @apply bg-transparent p-0;
+}
+
+.dark .prose blockquote {
+  @apply border-l-4 border-gray-700 text-gray-300;
+}
+
+.dark .prose ul {
+  @apply text-gray-300;
+}
+
+.dark .prose ol {
+  @apply text-gray-300;
+}
+
+/* 浅色模式样式 */
+.prose {
+  @apply text-gray-800;
+}
+
+.prose h1 {
+  @apply text-gray-900;
+}
+
+.prose h2 {
+  @apply text-gray-800;
+}
+
+.prose h3 {
+  @apply text-gray-700;
+}
+
+.prose p {
+  @apply text-gray-700;
+}
+
+.prose a {
+  @apply text-blue-600 hover:text-blue-500;
+}
+
+.prose strong {
+  @apply text-gray-900;
+}
+
+.prose code {
+  @apply bg-gray-100 text-gray-800 px-1 py-0.5 rounded;
+}
+
+.prose pre {
+  @apply bg-gray-100 border border-gray-200;
+}
+
+.prose pre code {
+  @apply bg-transparent p-0;
+}
+
+.prose blockquote {
+  @apply border-l-4 border-gray-200 text-gray-700;
+}
+
+.prose ul {
+  @apply text-gray-700;
+}
+
+.prose ol {
+  @apply text-gray-700;
+}
+
+/* 文章卡片样式 */
+.dark article {
+  @apply bg-gray-900 border border-gray-800 rounded-lg hover:border-gray-700 transition-colors;
+}
+
+.dark article h2 a {
+  @apply text-gray-100 hover:text-blue-400;
+}
+
+.dark article time {
+  @apply text-gray-400;
+}
+
+article {
+  @apply bg-white border border-gray-200 rounded-lg hover:border-gray-300 transition-colors;
+}
+
+article h2 a {
+  @apply text-gray-900 hover:text-blue-600;
+}
+
+article time {
+  @apply text-gray-500;
 }
